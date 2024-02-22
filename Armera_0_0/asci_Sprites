@@ -1,0 +1,117 @@
+ █████╗ ██████╗ ███╗   ███╗███████╗██████╗  █████╗
+██╔══██╗██╔══██╗████╗ ████║██╔════╝██╔══██╗██╔══██╗
+███████║██████╔╝██╔████╔██║█████╗  ██████╔╝███████║
+██╔══██║██╔══██╗██║╚██╔╝██║██╔══╝  ██╔══██╗██╔══██║
+██║  ██║██║  ██║██║ ╚═╝ ██║███████╗██║  ██║██║  ██║
+╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝
+
+                   1:Help
+                   2:New Game
+                   3:Continue
+
+
+██╗  ██╗███████╗██╗     ██████╗
+██║  ██║██╔════╝██║     ██╔══██╗
+███████║█████╗  ██║     ██████╔╝
+██╔══██║██╔══╝  ██║     ██╔═══╝
+██║  ██║███████╗███████╗██║
+╚═╝  ╚═╝╚══════╝╚══════╝╚═╝
+.-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.
+|                        This is the help menu                          |
+|      general information, controls, and more can be found here.       |
+|                                                                       |
+|                            1:lore                                     |
+|                            2:Controls                                 |
+|                            3:Credits                                  |
+|                            4:Back                                     |
+`-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
+
+.-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.
+|                             General                                   |
+|         Armera is a text based adventure/exploration game.            |
+|      your character begins in the middle of a barren wasteland        |
+|              having no memory of how they got there,                  |
+|      they begin a journey filled with discovery and adventure         |
+|                                                                       |
+|                            1:Back                                     |
+`-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
+
+.-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.
+|                            Controls                                   |
+|                                                                       |
+|                                                                       |
+|                                                                       |
+|                                                                       |
+|                                                                       |
+|                            1:Back                                     |
+`-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
+
+.-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.
+|                            Credits                                    |
+|                                                                       |
+|          As of this version Armera is developed by Kali               |
+|          the soul developer and member of Kalico studios              |
+|                                                                       |
+|                                                                       |
+|                            1:Back                                     |
+`-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
+
+.-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.
+|                             Setup                                     |
+|              Before our adventurer starts their journey               |
+|                we need a little information from you                  |
+|                                                                       |
+|                  What is our adventurers name?                        |
+|                                                                       |
+
+
+|        How sturdy is our adventurer | think strength/endurance        |
+|                                 0-10                                  |
+|      How acute is our adventurer | think intelligence/perception      |
+|                                 0-10                                  |
+|            How endearing is our adventurer, think charisma            |
+|                                 0-10                                  |
+|                      How Lucky is our adventurer                      |
+|                                 0-10                                  |
+|                  What is our adventurers gender                       |
+|              1:Male         2:Female        3:Non-binary              |
+|                                                                       |
+`-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
+
+.-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.
+|  Name:{name}{spacer}|
+|                                                                       |
+|                                                                       |
+|                                                                       |
+|                                                                       |
+|                                                                       |
+|                            1:Back                                     |
+`-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
+
+.-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.
+|                              Menus                                    |
+|                                                                       |
+|                1:Stats      2:Inventory      3:Map                    |
+|                                                                       |
+|                             4:Back                                    |
+`-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
+
+
+ ██████╗  █████╗ ███╗   ███╗███████╗     █████╗░██╗   ██╗███████╗██████╗
+██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ██╔══██╗██║   ██║██╔════╝██╔══██╗
+██║  ██╗ ███████║██╔████╔██║█████╗      ██║  ██║╚██╗ ██╔╝█████╗  ██████╔╝
+██║  ╚██╗██╔══██║██║╚██╔╝██║██╔══╝      ██║  ██║ ╚████╔╝ ██╔══╝  ██╔══██╗
+╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ╚█████╔╝  ╚██╔╝  ███████╗██║  ██║
+ ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝     ╚════╝    ╚═╝   ╚══════╝╚═╝  ╚═╝
+                                Continue?
+                              1:Yes   2:No
+
+.-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.
+|                        General Controls                               |
+|  these are used for movement on the map [up, down, right, left]       |
+|  to view stats and your inventory type "menu"                         |
+|  in the inventory type the number next the the items name to use it   |
+|  to search for loot or quests at the players position use "check"     |
+|  all other inputs are numbered, just type the number of your choice   |
+|                like this->  1:Back                                    |
+`-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'

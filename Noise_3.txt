@@ -1,0 +1,229 @@
+import pygame
+import random
+from opensimplex import OpenSimplex
+
+width, height = 1000, 1000
+
+
+board = []
+window = pygame.display.set_mode((width, height))
+
+# nothing yet
+octaves = 1
+
+# thickness of dividing lines, also makes the in between stuff thinner
+thickness = 1
+
+# the size of each pixel, bigger values drastically improve load time
+# higher values also effectively zooms in
+square_size = 5
+
+# basically zooms in and out
+scale = 0.08
+
+# rough adjustment to brightness
+brightness = 200
+
+# pairs the chosen colour with its complementary
+dual_colour = True
+
+# random colour gives a grain artifact effect. more noticeable with bigger square size
+random_colour = True
+
+# warning, rainbow is very slow
+# like hour long processing times for big resolutions
+rainbow = False
+
+colour_r = 0
+colour_g = 0
+colour_b = 0
+
+
+def build_board():
+    global board, octaves
+    board = []
+    gen_seed = int(random.randint(1, 1000))
+    noise = OpenSimplex(gen_seed)
+    row_count = 0
+
+    while square_size * row_count in range(0, height):
+        board.append([])
+        row_count += 1
+    print(f"{width // square_size},{row_count}")
+    print(row_count * (width // square_size))
+    col_count = 0
+    row_count = col_count
+
+    for row in board:
+        while square_size * col_count in range(0, width):
+            row.append(noise.noise2d(col_count * scale, row_count * scale) * thickness)
+            col_count += 1
+        row_count += 1
+        col_count = 0
+    col_count = 0
+    row_count = 0
+    while octaves > 0:
+        gen_seed = int(random.randint(1, 1000))
+        noise = OpenSimplex(gen_seed)
+        for row in board:
+            for col in row:
+                col += noise.noise2d(col_count * scale, row_count * scale) * thickness
+                col_count += 1
+            row_count += 1
+            col_count = 0
+        octaves -= 1
+        print(octaves)
+
+
+def board_print():
+    line = ""
+    for row in board:
+        for col in row:
+            line += str(col)
+        print(line)
+        line = ""
+
+
+def surface_build():
+    display_surface = pygame.surface.Surface((width, height))
+    display_surface.set_colorkey((0, 0, 0))
+    square_surface = pygame.surface.Surface((square_size, square_size))
+    row_count = 0
+    col_count = 0
+
+    r_seed = random.randint(0, 1000)
+    g_seed = random.randint(1000, 2000)
+    b_seed = random.randint(2000, 3000)
+
+    for row in board:
+        for col in row:
+            if not rainbow:
+                if random_colour:
+                    colour_val_r = (random.randint(0, 100) + brightness) * col
+                    colour_val_g = (random.randint(0, 100) + brightness) * col
+                    colour_val_b = (random.randint(0, 100) + brightness) * col
+                elif dual_colour:
+                    colour_val_r = colour_r + brightness * col
+                    colour_val_g = colour_g + brightness * col
+                    colour_val_b = colour_b + brightness * col
+                else:
+                    colour_val_r = (colour_r + brightness) * col
+                    colour_val_g = (colour_g + brightness) * col
+                    colour_val_b = (colour_b + brightness) * col
+
+                if random_colour:
+                    if colour_val_r < 0:
+                        if dual_colour:
+                            colour_val_r = abs(random.randint(0, 100) + brightness * col)
+                        else:
+                            colour_val_r = abs((random.randint(0, 100) + brightness) * col)
+
+                    if colour_val_g < 0:
+                        if dual_colour:
+                            colour_val_g = abs(random.randint(0, 100) + brightness * col)
+                        else:
+                            colour_val_g = abs((random.randint(0, 100) + brightness) * col)
+
+                    if colour_val_b < 0:
+                        if dual_colour:
+                            colour_val_b = abs(random.randint(0, 100) + brightness * col)
+                        else:
+                            colour_val_b = abs((random.randint(0, 100) + brightness) * col)
+                else:
+                    if colour_val_r < 0:
+                        if dual_colour:
+                            colour_val_r = abs(colour_r + brightness * col)
+                        else:
+                            colour_val_r = abs((colour_r + brightness) * col)
+
+                    if colour_val_g < 0:
+                        if dual_colour:
+                            colour_val_g = abs(colour_g + brightness * col)
+                        else:
+                            colour_val_g = abs((colour_g + brightness) * col)
+
+                    if colour_val_b < 0:
+                        if dual_colour:
+                            colour_val_b = abs(colour_b + brightness * col)
+                        else:
+                            colour_val_b = abs((colour_b + brightness) * col)
+
+                if colour_val_r > 255 or colour_val_r < -255:
+                    colour_val_r = 250
+
+                if colour_val_g > 255 or colour_val_g < -255:
+                    colour_val_g = 250
+
+                if colour_val_b > 255 or colour_val_b < -255:
+                    colour_val_b = 250
+            else:
+
+                noise_r = OpenSimplex(r_seed).noise2d(col_count, row_count) * 100
+                noise_g = OpenSimplex(g_seed).noise2d(col_count, row_count) * 100
+                noise_b = OpenSimplex(b_seed).noise2d(col_count, row_count) * 100
+                if dual_colour:
+                    colour_val_r = noise_r + brightness * col
+                    colour_val_g = noise_g + brightness * col
+                    colour_val_b = noise_b + brightness * col
+                else:
+                    colour_val_r = (noise_r + brightness) * col
+                    colour_val_g = (noise_g + brightness) * col
+                    colour_val_b = (noise_b + brightness) * col
+                if colour_val_r < 0:
+                    if dual_colour:
+                        colour_val_r = abs(noise_r + brightness * col)
+                    else:
+                        colour_val_r = abs((noise_r + brightness) * col)
+
+                if colour_val_g < 0:
+                    if dual_colour:
+                        colour_val_g = abs(noise_g + brightness * col)
+                    else:
+                        colour_val_g = abs((noise_g + brightness) * col)
+
+                if colour_val_b < 0:
+                    if dual_colour:
+                        colour_val_b = abs(noise_b + brightness * col)
+                    else:
+                        colour_val_b = abs((noise_b + brightness) * col)
+
+                if colour_val_r > 255 or colour_val_r < -255:
+                    colour_val_r = 250
+
+                if colour_val_g > 255 or colour_val_g < -255:
+                    colour_val_g = 250
+
+                if colour_val_b > 255 or colour_val_b < -255:
+                    colour_val_b = 250
+            # used for debugging
+            # print(f"{colour_val_r} {colour_val_g} {colour_val_b}")
+            colour = (colour_val_r, colour_val_g, colour_val_b)
+
+            square_surface.fill(colour)
+            display_surface.blit(square_surface, (col_count, row_count))
+            col_count += square_size
+        row_count += square_size
+        col_count = 0
+
+    window.blit(display_surface, (0, 0))
+    pygame.display.update()
+
+
+def main_loop():
+    pygame.display.set_caption("map gen")
+
+    run = True
+
+    build_board()
+
+    surface_build()
+    while run:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+                break
+
+    pygame.quit()
+
+
+main_loop()
